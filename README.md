@@ -12,8 +12,8 @@ In your `WORKSPACE` file:
 ```Starlark
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-RULES_SCAD_COMMIT = "88d3821f1ad44402aaeb40d4514a2d9d44c51d17"
-RULES_SCAD_SHA256 = "1b3393650a88514ef151c75a8edefb904fafb934444dcf1fb45a474724caef7e"
+RULES_SCAD_COMMIT = "38a56790f5deeb57111fd13b90d940ee338b618e"
+RULES_SCAD_SHA256 = "062988d892c851901f76fe60a3563459878d9d25539cd6139a209dc0624728ed"
 
 http_archive(
     name = "rules_scad",
