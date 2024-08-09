@@ -55,6 +55,6 @@ def scad_to_stl(name, srcs, deps = [], **kwargs):
         data = ["@rules_scad//scad/private:openscad"] + srcs + deps,
         args = [
             "$(rlocationpath @rules_scad//scad/private:openscad)",
-            "$(rlocationpath {})".format(srcs[0]),
+            srcs[0],
         ],
     )
