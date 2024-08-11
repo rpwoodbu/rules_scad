@@ -1,0 +1,6 @@
+module(name = "rules_scad", version = "0.1.0")
+
+repositories = use_extension("//scad/private:extensions.bzl", "repositories")
+use_repo(repositories, "openscad-x86_64", "openscad-aarch64")
+
+bazel_dep(name = "platforms", version = "0.0.10")
