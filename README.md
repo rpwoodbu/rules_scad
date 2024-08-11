@@ -8,18 +8,33 @@ AppImage. Linux binaries for x86_64 and aarch64 have been defined.
 
 ## Getting Started
 
-In your `WORKSPACE` file:
+In your `MODULE.bazel` file:
+```Starlark
+RULES_SCAD_COMMIT = "5be601ed0c83241cda77a4fd7fcc02ac82e85f5c"
+RULES_SCAD_INTEGRITY = "sha256-RG996y4DBc1XZCX6eZmw3fso/FuZj60TyvVqPb6jsiM="
+
+bazel_dep(name = "rules_scad")
+
+archive_override(
+    module_name = "rules_scad",
+    urls = ["https://github.com/rpwoodbu/rules_scad/archive/{}.tar.gz".format(RULES_SCAD_COMMIT)],
+    strip_prefix = "rules_scad-{}".format(RULES_SCAD_COMMIT),
+    integrity = RULES_SCAD_INTEGRITY,
+)
+```
+
+If you are not using Bzlmod, in your `WORKSPACE` file:
 ```Starlark
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-RULES_SCAD_COMMIT = "38a56790f5deeb57111fd13b90d940ee338b618e"
-RULES_SCAD_SHA256 = "062988d892c851901f76fe60a3563459878d9d25539cd6139a209dc0624728ed"
+RULES_SCAD_COMMIT = "5be601ed0c83241cda77a4fd7fcc02ac82e85f5c"
+RULES_SCAD_INTEGRITY = "sha256-RG996y4DBc1XZCX6eZmw3fso/FuZj60TyvVqPb6jsiM="
 
 http_archive(
     name = "rules_scad",
     urls = ["https://github.com/rpwoodbu/rules_scad/archive/{}.tar.gz".format(RULES_SCAD_COMMIT)],
     strip_prefix = "rules_scad-{}".format(RULES_SCAD_COMMIT),
-    sha256 = RULES_SCAD_SHA256,
+    integrity = RULES_SCAD_INTEGRITY,
 )
 
 load("@rules_scad//scad:repositories.bzl", "rules_scad_repositories")
