@@ -9,4 +9,4 @@ appimage_binary(
     visibility = ["//visibility:public"],
 )
 
-exports_files(["openscad.sh"])
+exports_files(["openscad_wrapper.sh"])
